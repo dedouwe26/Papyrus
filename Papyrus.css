@@ -1,0 +1,345 @@
+/* Papyrus - By 0xDED under MIT License */
+
+/* Papyrus is a Obsidian snippet that 
+ * handles styles and themes per note.  */
+
+/* ## CONFIGURATION ## */
+:root {
+    /* Theme Configuration */
+    --p-manilla-theme: #f3deaf;
+    --p-manilla-theme-secondary: #b3a178;
+    --p-manilla-theme-grid: #e0c39e;
+
+    --p-blue-theme: #3f76ed;
+    --p-blue-theme-secondary: #628be5;
+    --p-blue-theme-grid: #2756bd;
+
+    --p-white-theme: #ffffff;
+    --p-white-theme-secondary: #c5c5c5;
+
+    --p-black-theme: #000000;
+    --p-black-theme-secondary: #363638;
+
+    /* Pen Configuration */
+    --p-white-pen: #edf1fc;
+    --p-black-pen: #26241f;
+    --p-red-pen: #e14a49;
+    --p-green-pen: #15b64f;
+    --p-blue-pen: #3f76ed;
+    --p-light-blue-pen: #54b6f8;
+    --p-purple-pen: #9b4ff0;
+
+    /* Style Configuration */
+    --p-newspaper-font: "Georgia", "Times New Roman", Times, serif;
+    --p-handwritten-font: "Comic Sans MS", "Comic Relief", "Brush Script MT";
+    /* Uses Obsidian-defined monospace font */
+    --p-monospace-font: "JetBrainsMono Nerd Font Propo", var(--font-monospace);
+
+    --p-grid-size: 32px;
+    --p-compact-size: 8px;
+    --p-column-gap: 40px;
+
+    --p-line-thickness: 2px;
+    --p-text-weight: normal;
+    --p-bold-weight: 800;
+    --p-code-weight: 700;
+    --p-h2-weight: 600;
+
+    /* For more configuration see APPLYING */
+}
+
+@font-face {
+    font-family: "Cambria";
+    font-weight: var(--p-bold-weight);
+    src:
+        local("Cambria Bold")
+}
+
+
+/* ## APPLYING ## */
+
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) {
+    --line-thickness: var(--p-line-thickness);
+    --text-weight: var(--p-text-weight);
+    --bold-weight: var(--p-bold-weight);
+    --grid-color: var(--secondary-color);
+    --negate-color: var(--text-color);
+
+    --inline-title-color: var(--text-color);
+    --inline-title-weight: var(--bold-weight);
+
+    --metadata-label-text-color: var(--text-color);
+    --metadata-input-text-color: var(--text-color);
+
+    --tag-color: var(--text-color);
+    --tag-background: var(--secondary-color);
+    --tag-color-hover: var(--link-color-hover);
+    --tag-background-hover: var(--secondary-color);
+
+    --pill-background-hover: var(--secondary-color);
+    --pill-color-hover: var(--link-color-hover);
+
+    --background-modifier-border-focus: var(--text-color);
+    --background-modifier-border: var(--secondary-color);
+    --background-modifier-hover: var(--secondary-color);
+
+    --h1-weight: var(--bold-weight);
+    --h2-weight: var(--p-h2-weight);
+    --h3-weight: var(--text-weight);
+    --h4-weight: var(--text-weight);
+    --h5-weight: var(--text-weight);
+    --h6-weight: var(--text-weight);
+    --h1-color: var(--text-color);
+    --h2-color: var(--text-color);
+    --h3-color: var(--text-color);
+    --h4-color: var(--text-color);
+    --h5-color: var(--text-color);
+    --h6-color: var(--text-color);
+
+    --text-normal: var(--text-color);
+    --text-accent: var(--text-color);
+
+    --link-color: var(--p-blue-pen);
+    --link-color-hover: var(--p-light-blue-pen);
+    --link-external-color: var(--p-purple-pen);
+    --link-unresolved-color: var(--p-red-pen);
+
+    --text-accent-hover: var(--link-color-hover);
+    --font-weight: var(--text-weight);
+    --text-muted: var(--text-color);
+    --text-faint: var(--secondary-color);
+    --hr-color: var(--text-color);
+
+    --bold-color: var(--text-color);
+
+    --italic-color: var(--text-accent);
+
+    --caret-color: var(--text-color);
+
+    --collapse-icon-color: var(--text-color);
+    --collapse-icon-color-collapsed: var(--text-color);
+
+    --table-header-color: var(--text-color);
+    --table-header-weight: var(--text-weight);
+    --table-header-background: var(--secondary-color);
+    --table-header-background-hover: var(--secondary-color);
+
+    --indentation-guide-color: var(--text-color);
+    --indentation-guide-width: var(--line-thickness);
+
+    --checkbox-color: var(--text-color);
+    --checkbox-marker-color: var(--primary-color);
+    --checkbox-color-hover: var(--secondary-color);
+    --checkbox-border-color: var(--text-color);
+
+    --checklist-done-color: var(--text-color);
+
+    --list-marker-color: var(--text-color);
+
+    --link-weight: var(--text-weight);
+    --link-decoration: underline;
+    --link-decoration-thickness: var(--line-thickness);
+
+    --interactive-accent: var(--text-color);
+
+    --blockquote-border-color: var(--text-color);
+    --blockquote-border-thickness: var(--line-thickness);
+    --blockquote-background-color: var(--secondary-color);
+
+    --embed-border-left: 2px solid var(--text-color);
+
+    font-weight: var(--font-weight);
+    color: var(--text-normal);
+    caret-color: var(--caret-color);
+    background-color: var(--primary-color);
+
+    color-scheme: var(--color-scheme);
+}
+
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) .metadata-container {
+    border: var(--line-thickness) solid var(--secondary-color);
+    border-radius: 20px;
+}
+
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) svg {
+    color: color-mix(in srgb, var(--text-color) 80%, transparent);
+}
+
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) .embed img {
+    background-color: var(--primary-color);
+}
+
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) :is(code, .HyperMD-codeblock, .cm-inline-code) {
+    --code-normal: var(--text-color);
+    --code-background: var(--secondary-color);
+    font-weight: var(--p-code-weight);
+}
+
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) div>pre {
+    --code-background: color-mix(in srgb,
+            var(--primary-color) 80%,
+            black) !important;
+}
+
+:is(.manilla-theme,
+    .white-theme,
+    .blue-theme,
+    .black-theme,
+    .papyrus-config) blockquote {
+    border-radius: 0 10px 10px 0;
+}
+
+:is(.manilla-theme,
+    .white-theme,
+    .blue-theme,
+    .black-theme,
+    .papyrus-config) :is(b, strong, .cm-strong) {
+    font-weight: var(--bold-weight);
+}
+
+:is(.white-theme, .manilla-theme, .blue-theme, .black-theme, .use-config) {
+    --metadata-input-background-active: var(--secondary-color);
+}
+
+/* ## THEMES ## */
+.manilla-theme {
+    --primary-color: var(--p-manilla-theme);
+    --secondary-color: var(--p-manilla-theme-secondary);
+    --text-color: var(--p-black-pen);
+    --grid-color: var(--p-manilla-theme-grid);
+    --color-scheme: light;
+    --text-highlight-bg: #8cff6466;
+}
+
+.blue-theme {
+    --primary-color: var(--p-blue-theme);
+    --secondary-color: var(--p-blue-theme-secondary);
+    --text-color: var(--p-white-pen);
+    --grid-color: var(--p-blue-theme-grid);
+    --color-scheme: dark;
+    --link-color: color-mix(in srgb, var(--p-light-blue-pen) 60%, var(--p-white-pen));
+    --link-color-external: color-mix(in srgb, var(--p-purple-pen) 20%, var(--p-white-pen));
+    --link-color-hover: color-mix(
+        in srgb,
+        var(--p-light-blue-pen) 20%,
+        var(--p-white-pen)
+    );
+}
+
+.white-theme {
+    --primary-color: var(--p-white-theme);
+    --secondary-color: var(--p-white-theme-secondary);
+    --text-color: var(--p-black-pen);
+    --color-scheme: light;
+}
+
+.black-theme {
+    --primary-color: var(--p-black-theme);
+    --secondary-color: var(--p-black-theme-secondary);
+    --text-color: var(--p-white-pen);
+    --color-scheme: dark;
+}
+
+/* ## PENS ## */
+.white-pen {
+    --text-color: var(--p-white-pen);
+    --secondary-color: color-mix(in srgb, var(--p-white-pen) 15%, transparent);
+}
+.black-pen {
+    --text-color: var(--p-black-pen);
+    --secondary-color: color-mix(in srgb, var(--p-black-pen) 15%, transparent);
+}
+.red-pen {
+    --text-color: var(--p-red-pen);
+    --secondary-color: color-mix(in srgb, var(--p-red-pen) 15%, transparent);
+}
+.green-pen {
+    --text-color: var(--p-green-pen);
+    --secondary-color: color-mix(in srgb, var(--p-green-pen) 15%, transparent);
+}
+.blue-pen {
+    --text-color: var(--p-blue-pen);
+    --secondary-color: color-mix(in srgb, var(--p-blue-pen) 15%, transparent);
+}
+.purple-pen {
+    --text-color: var(--p-purple-pen);
+    --secondary-color: color-mix(in srgb, var(--p-purple-pen) 15%, transparent);
+}
+
+/* ## STYLES ## */
+.newspaper-font {
+    --font-family: var(--p-newspaper-font);
+    font-family: var(--p-newspaper-font), var(--font-text);
+}
+.monospace-font {
+    --font-family: var(--p-monospace-font);
+    font-family: var(--p-monospace-font), var(--font-text);
+}
+.handwritten-font {
+    --font-family: var(--p-handwritten-font);
+    font-family: var(--p-handwritten-font), var(--font-text);
+}
+.editing-font .cm-scroller {
+    font-family: var(--font-family) !important;
+}
+
+.compact {
+    --p-spacing: var(--p-compact-size);
+    --heading-spacing: var(--p-compact-size);
+}
+
+.page-grid {
+    background-image: linear-gradient(0deg,
+            transparent 0px,
+            var(--grid-color) 1px,
+            var(--grid-color) 2px,
+            transparent 3px),
+        linear-gradient(90deg,
+            transparent calc(var(--p-grid-size) - 3px),
+            var(--grid-color) calc(var(--p-grid-size) - 2px),
+            var(--grid-color) calc(var(--p-grid-size) - 1px),
+            transparent var(--p-grid-size));
+    background-size: var(--p-grid-size) var(--p-grid-size);
+}
+
+.hide-add-property .metadata-add-button {
+    display: none;
+}
+.hide-add-property .metadata-container:hover .metadata-add-button {
+    display: inline-flex;
+}
+
+.negate-header :is(.inline-title, h1, .cm-header-1) {
+    background-color: var(--negate-color);
+    color: var(--primary-color);
+    padding: 2px;
+    --collapse-icon-color: var(--primary-color);
+    --collapse-icon-color-collapsed: var(--primary-color);
+}
+.center-header :is(.inline-title, h1, .cm-header-1) {
+    text-align: center;
+}
