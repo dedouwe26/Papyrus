@@ -13,6 +13,7 @@ Here are the following defined css classes:
 - `white-theme` : White theme
 - `black-theme` : Black theme
 ### Pens
+Use this with a theme or `papyrus-config`.
 - `white-pen` : Enables a white text color.
 - `black-pen` : Enables a black text color.
 - `red-pen` : Enables a red text color.
