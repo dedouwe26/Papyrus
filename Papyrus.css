@@ -220,6 +220,13 @@
     .papyrus-config) :is(b, strong, .cm-strong) {
     font-weight: var(--bold-weight);
 }
+:is(.manilla-theme,
+    .blue-theme,
+    .white-theme,
+    .black-theme,
+    .papyrus-config) * {
+    text-decoration-thickness: var(--p-line-thickness);
+}
 
 :is(.white-theme, .manilla-theme, .blue-theme, .black-theme, .use-config) {
     --metadata-input-background-active: var(--secondary-color);
